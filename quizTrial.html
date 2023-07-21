@@ -1,0 +1,138 @@
+<!-- Quiz page that submits answers, gives score and displays ticks/crosses. -->
+<!DOCTYPE html>
+<html>
+    <head>
+    <link  rel="stylesheet" href="quizTrial.css">
+    </head>
+    <body>
+
+  <div class="two-blocks-container">
+    
+    <div class="two-blocks">
+
+        <div class="allTextVisibleResponsive">
+       
+      <h4>1.What does HTML stand for?</h4>
+      <ul>
+      <li><input type="radio" name="qn1" id="op1"/> Hypertext Markup Language</li>
+      <li> <input type="radio" name="qn1" id="op2"/> wrong</li>
+      <li> <input type="radio" name="qn1" id="op3"/> wrong </li>
+      <li><input type="radio" name="qn1" id="op4"/> wrong</li>
+    </ul>
+    
+
+    <h4>2.What does CSS stand for?</h4>
+    <ul>
+    <li><input type="radio" name="qn2" id="op5"/>wrong</li>
+    <li> <input type="radio" name="qn2" id="op6"/> Cascading Style Sheets</li>
+    <li> <input type="radio" name="qn2" id="op7"/> wrong </li>
+    <li><input type="radio" name="qn2" id="op8"/> wrong</li>
+  </ul>
+
+  <h4>3.Which display property does span elements have by default?</h4>
+  <ul>
+  <li><input type="radio" name="qn3" id="op9"/> wrong</li>
+  <li> <input type="radio" name="qn3" id="op10"/> wrong</li>
+  <li> <input type="radio" name="qn3" id="op11"/> inline </li>
+  <li><input type="radio" name="qn3" id="op12"/> wrong</li>
+</ul>
+    </div>
+<div class="checkBlock1">
+    <div class="firstTick" style=""></div>
+    <div class="secondTick" style=""></div>
+    <div class="thirdTick" style=""></div>
+</div> 
+  
+    </div>
+    
+
+    <div class="two-blocks">
+
+        <div class="allTextVisibleResponsive">
+
+        <h4>4.What does HTML stand for?</h4>
+        <ul>
+            <li><input type="radio" name="qn5" id="op13"/> wrong</li>
+            <li> <input type="radio" name="qn5" id="op14"/> wrong</li>
+            <li> <input type="radio" name="qn5" id="op15"/> wrong </li>
+            <li><input type="radio" name="qn5" id="op16"/> Hypertext Markup Language</li>
+            </ul>
+       <button id="submit" onclick="checkResult()">Submit</button>  
+       <p id="score"></p>          
+       <p id="percentageSentence"></p>
+        </div>
+
+       <div class="checkBlock2">
+            <div class="fourthTick" style=""></div>
+            <div></div>
+            <div></div>
+       </div> 
+    </div>
+   
+</div>
+
+ <script>
+    function checkResult(){
+        var sum=0;
+        answer1=document.getElementById("op1");
+        answer2=document.getElementById("op6");
+        answer3=document.getElementById("op11");
+        answer4=document.getElementById("op16");
+if(answer1.checked==true){
+            // sum=sum+1; same as below
+            sum++;
+            document.getElementsByClassName("firstTick")[0].innerHTML= '\u2713';
+            document.getElementsByClassName("firstTick")[0].style.color="green";
+        } 
+        else{
+              document.getElementsByClassName("firstTick")[0].innerHTML='\u2717';
+              document.getElementsByClassName("firstTick")[0].style.color="red";
+             }
+
+
+        if(answer2.checked==true){
+            // sum=sum+1; same as below
+            sum++;
+            document.getElementsByClassName("secondTick")[0].innerHTML= '\u2713';
+            document.getElementsByClassName("secondTick")[0].style.color="green";
+        } else{ document.getElementsByClassName("secondTick")[0].innerHTML='\u2717';
+                document.getElementsByClassName("secondTick")[0].style.color="red";
+              }
+
+        if(answer3.checked==true){
+            // sum=sum+1; same as below
+            sum++;
+            document.getElementsByClassName("thirdTick")[0].innerHTML= '\u2713';
+            document.getElementsByClassName("thirdTick")[0].style.color="green";
+        } else{ document.getElementsByClassName("thirdTick")[0].innerHTML='\u2717';
+                document.getElementsByClassName("thirdTick")[0].style.color="red";}
+
+        if(answer4.checked==true){
+            // sum=sum+1; same as below
+            sum++;
+            document.getElementsByClassName("fourthTick")[0].innerHTML= '\u2713';
+            document.getElementsByClassName("fourthTick")[0].style.color="green";
+        } else{ document.getElementsByClassName("fourthTick")[0].innerHTML='\u2717';
+                document.getElementsByClassName("fourthTick")[0].style.color="red";}
+
+        document.getElementById("score").innerHTML= "Score : " +sum;
+
+    
+
+        var percent = sum*100/4;
+        // document.getElementById("percentageSentence").innerHTML += percent+ "%" ;
+        document.getElementById("percentageSentence").innerHTML="Percentage : " +percent+ "%" ;
+
+        if(percent<50){
+            document.getElementById("percentageSentence").style.color="red";
+        }
+          else{
+            document.getElementById("percentageSentence").style.color="green";
+          }
+        if(percent==100){
+            document.getElementById("percentageSentence").innerHTML= "Percentage : " +percent+ "%   Well Done!" ;
+        }   
+    }
+    </script>
+    </body>
+    </html> 

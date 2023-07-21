@@ -1,0 +1,140 @@
+html, body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  input {
+    font-size: 14px;
+    font-family: Helvetica, sans-serif;
+  }
+  
+  body {
+    background-color: #BBB;
+    font-family: Helvetica, sans-serif;
+    padding-bottom: 100px;
+  }
+
+.two-blocks-container {
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+  }
+  
+  .two-blocks {
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    flex-basis: 49%;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  @media (min-width: 900px) {
+    .two-blocks-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  
+  .two-blocks:nth-child(1) {background-color: #c0dbe2;}
+  .two-blocks:nth-child(2) {background-color: #cdf1c3;}
+
+  .two-blocks li {
+  list-style: none;
+  }
+  .checkBlock1,
+  .checkBlock2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:60px;
+    /* fixed width doesn't have to be added if there is content inside. Let it adjust on its own. */
+    height: 100%;
+    /* background-color: rgb(250, 255, 240);  to see the layout*/ 
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    box-sizing: border-box;
+   
+    /* The inherit worked properly when box sizing was used in both parent and child class. otherwise specific values, same as
+    two-blocks class had to be set for check class.*/
+    /* border-top-right-radius:10px;
+    border-bottom-right-radius:10px; */
+
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack the inner divs vertically */
+    z-index: 1; 
+    /* z-index to make the questions visible */
+  }
+
+  /* class="" */
+  
+
+.allTextVisibleResponsive {
+  z-index: 2;
+  position: relative;
+  /* giving both position relative and z-index to h4 makes the text overlap the side or .check div. inherit is not working. */
+}
+
+/* To make the questions responsive */
+
+/* @media (max-width: 767px) {
+  .check {
+    Adjust the positioning or size for smaller screens
+  }
+
+  .allTextVisibleResponsive{
+    Adjust the positioning or size for smaller screens
+  } */
+
+
+
+
+  .checkBlock1 div {
+    /* background-color: rgb(233, 132, 123);  to see the layout*/
+    flex:1;
+    width: inherit;
+    box-sizing: border-box;
+
+  }
+/* The classes firstTick.... were created before the margin top and bottom of 20px were added to make its border align with
+the curved border of chekBox1 and checkBox2 */
+   .firstTick {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    /* border-top-right-radius: inherit;
+    box-sizing: border-box; */
+  }
+
+  .secondTick{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* box-sizing: border-box; */
+  }
+
+  .thirdTick{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /* box-sizing: border-box; */
+    /*border-bottom-right-radius: inherit; */
+  }
+
+  /* I'll have to do the same as I've done for the three divs inside checkBlock1 once I add 
+  questions in here. */
+  
+.checkBlock2 div{
+  flex: 1;
+  width: inherit;
+  box-sizing: border-box;
+  margin-top:40px; 
+  margin-bottom: 20px;
+
+}
+  .fourthTick{
+    
+    /* background-color: rgb(233, 132, 123); to see the layout */
+  
+  }
+
+  .red-text{
+    color: red;
+  }
+  
